@@ -4,6 +4,5 @@
 node_modules
 dist
 .astro
-
-# Temporary
-package-lock.json
+.e2e_test_results
+.unit_test_results

@@ -1,23 +1,37 @@
 {
-    "name": "web-site-astro-01-min-viable-build",
+    "name": "web-site-astro-05-tests",
     "private": true,
     "version": "0.0.1",
-    "description": "Just the files needed to make Astro build a Hello World index.html",
+    "description": "Code for a teeny-tiny Astro static site with Vitest unit tests and Playwright E2E tests to ensure it really says Hello World",
     "author": {
         "name": "Katie Kodes",
         "url": "https://katiekodes.com"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/kkgthb/web-site-astro-01-min-viable-build.git"
+        "url": "git+https://github.com/kkgthb/web-site-astro-05-tests.git"
     },
     "scripts": {
-        "dev": "astro dev --host",
+        "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "test": "vitest --config ./vitest.config.ts",
+        "test:ci": "vitest run --config ./vitest.config.ts",
+        "test:e2e": "npx playwright test --config ./playwright.config.ts",
+        "test:e2e:localhost": "start-server-and-test dev http://localhost:4321 test:e2e",
+        "e2einspect": "npx playwright show-report .e2e_test_results/html"
     },
     "devDependencies": {
-        "astro": "latest"
+        "@astrojs/node": "^9.5.1",
+        "@playwright/test": "^1.56.1",
+        "@types/node": "^24.10.1",
+        "@vitest/coverage-v8": "^4.0.13",
+        "astro": "^5.16.0",
+        "playwright-ctrf-json-reporter": "^0.0.26",
+        "start-server-and-test": "^2.1.3",
+        "typescript": "^5.9.3",
+        "vitest": "^4.0.13",
+        "wait-on": "^9.0.3"
     }
 }
